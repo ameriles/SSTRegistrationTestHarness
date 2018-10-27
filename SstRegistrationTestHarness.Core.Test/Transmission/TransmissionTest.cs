@@ -106,7 +106,7 @@ namespace SstRegistrationTestHarness.Core.Test.Transmission
             Assert.IsNotNull(response.OriginalResponse);
 
             var logs = _genericRepository.ListAll<TransmittalLog>();
-            Assert.AreEqual(1, logs.Count);
+            Assert.AreEqual(1, _genericRepository.Count<TransmittalLog>());
 
             var log = logs.ElementAt(0);
             Assert.AreEqual(ETransmittalStatus.Rejected, log.TransmissionStatus);
@@ -144,7 +144,7 @@ namespace SstRegistrationTestHarness.Core.Test.Transmission
             Assert.IsNotNull(response.OriginalResponse);
 
             var logs = _genericRepository.ListAll<TransmittalLog>();
-            Assert.AreEqual(1, logs.Count);
+            Assert.AreEqual(1, logs.Count<TransmittalLog>());
 
             var log = logs.ElementAt(0);
             Assert.AreEqual(response.ContentSent, log.ContentSent);
@@ -184,7 +184,7 @@ namespace SstRegistrationTestHarness.Core.Test.Transmission
             Assert.IsNotNull(response.OriginalResponse);
 
             logs = _genericRepository.ListAll<TransmittalLog>();
-            Assert.AreEqual(2, logs.Count);
+            Assert.AreEqual(2, _genericRepository.Count<TransmittalLog>());
 
             log = logs.ElementAt(1);
             Assert.AreEqual(response.ContentSent, log.ContentSent);
@@ -242,7 +242,7 @@ namespace SstRegistrationTestHarness.Core.Test.Transmission
             Assert.IsNotNull(response.OriginalResponse);
 
             var logs = _genericRepository.ListAll<TransmittalLog>();
-            Assert.AreEqual(1, logs.Count);
+            Assert.AreEqual(1, _genericRepository.Count<TransmittalLog>());
 
             var log = logs.ElementAt(0);
             Assert.AreEqual(response.ContentSent, log.ContentSent);
@@ -303,7 +303,7 @@ namespace SstRegistrationTestHarness.Core.Test.Transmission
             Assert.IsNotNull(response.OriginalResponse);
 
             var logs = _genericRepository.ListAll<TransmittalLog>();
-            Assert.AreEqual(1, logs.Count);
+            Assert.AreEqual(1, _genericRepository.Count<TransmittalLog>());
 
             var log = logs.ElementAt(0);
             Assert.AreEqual(response.ContentSent, log.ContentSent);
