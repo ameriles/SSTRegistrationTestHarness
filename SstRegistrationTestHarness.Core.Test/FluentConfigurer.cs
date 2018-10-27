@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Entity;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.IO;
 using SQLite.CodeFirst;
 using SstRegistrationTestHarness.Core.EntityFramework;
@@ -18,9 +19,10 @@ namespace SstRegistrationTestHarness.Core.Test
         {
             LogAction = message =>
             {
-                var logFile = File.AppendText("EFLogs.txt");
-                logFile.WriteLine($"{DateTime.UtcNow:yyyy/MM/dd hh:mm:ss} {message}");
-                logFile.Close();
+                Trace.WriteLine($"{DateTime.UtcNow:yyyy/MM/dd hh:mm:ss} {message}");
+                //var logFile = File.AppendText("EFLogs.txt");
+                //logFile.WriteLine($"{DateTime.UtcNow:yyyy/MM/dd hh:mm:ss} {message}");
+                //logFile.Close();
             };
         }
 

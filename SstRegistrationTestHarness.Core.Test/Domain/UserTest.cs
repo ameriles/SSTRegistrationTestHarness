@@ -26,11 +26,11 @@ namespace SstRegistrationTestHarness.Core.Test.Domain
         [TestInitialize]
         public void TestInitialize()
         {
-            EntityFrameworkDbContextHelper.Instance.BeginTransaction();
-            
             _genericRepository = new EntityFrameworkGenericRepository<Guid>();
             _userRepository = new UserRepository();
 
+            EntityFrameworkDbContextHelper.Instance.BeginTransaction();
+            
             _root = new SstRegistrationTestHarnessSystem(Guid.NewGuid());
             _genericRepository.Save(_root);
         }
