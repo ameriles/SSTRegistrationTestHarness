@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C516A33-C4EF-4E61-8942-98425F175A7E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SstRegistrationTestHarness.Core</RootNamespace>
+    <AssemblyName>SstRegistrationTestHarness.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\SstRegistrationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Address.cs" />
+    <Compile Include="Domain\BulkNewRegistrationIndicatorOperation.cs" />
+    <Compile Include="Domain\BulkOperationCou.cs" />
+    <Compile Include="Domain\BulkOperationNew.cs" />
+    <Compile Include="Domain\BulkOperationType.cs" />
+    <Compile Include="Domain\BusinessInfo.cs" />
+    <Compile Include="Domain\ContactSellerInfo.cs" />
+    <Compile Include="Domain\Contractor.cs" />
+    <Compile Include="Domain\ETransmissionMode.cs" />
+    <Compile Include="Domain\ETransmittalStatus.cs" />
+    <Compile Include="Domain\FeinTaxpayer.cs" />
+    <Compile Include="Domain\ForeignAddress.cs" />
+    <Compile Include="Domain\IActionCouItem.cs" />
+    <Compile Include="Domain\OperationType.cs" />
+    <Compile Include="Domain\SsnTaxPayer.cs" />
+    <Compile Include="Domain\SstRegistrationTestHarnessSystem.cs" />
+    <Compile Include="Domain\StateIndicator.cs" />
+    <Compile Include="Domain\Taxpayer.cs" />
+    <Compile Include="Domain\TechModel.cs" />
+    <Compile Include="Domain\TechModelNone.cs" />
+    <Compile Include="Domain\TechModelOne.cs" />
+    <Compile Include="Domain\TechModelThree.cs" />
+    <Compile Include="Domain\TechModelTwo.cs" />
+    <Compile Include="Domain\TransmittalEnvironment.cs" />
+    <Compile Include="Domain\TransmittalLog.cs" />
+    <Compile Include="Domain\TransmittalLogItem.cs" />
+    <Compile Include="Domain\UsaAddress.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Repositories\ITransmittalEnvironmentRepository.cs" />
+    <Compile Include="Repositories\ITransmittalLogRepository.cs" />
+    <Compile Include="SstRegistrationService\BulkRegistrationDocumentType.cs" />
+    <Compile Include="Transmitter\ApiServiceClientMock.cs" />
+    <Compile Include="Transmitter\ServiceBuilder.cs" />
+    <Compile Include="Transmitter\ServiceMockParameters.cs" />
+    <Compile Include="Utilities\EnumHelper.cs" />
+    <Compile Include="Exceptions\EntityModelException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IContractorRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Security\Crypter.cs" />
+    <Compile Include="SstRegistrationService\AddressTypeForeignAddress.cs" />
+    <Compile Include="SstRegistrationService\AddressTypeUSAddress.cs" />
+    <Compile Include="SstRegistrationService\BulkRegistrationCOUTypeBusinessInfo.cs" />
+    <Compile Include="SstRegistrationService\BulkRegistrationCOUTypeStateIndicators.cs" />
+    <Compile Include="SstRegistrationService\Error.cs" />
+    <Compile Include="SstRegistrationService\IAddressType.cs" />
+    <Compile Include="SstRegistrationService\ICouItemValidable.cs" />
+    <Compile Include="SstRegistrationService\ModelOneType.cs" />
+    <Compile Include="SstRegistrationService\ModelTwoType.cs" />
+    <Compile Include="SstRegistrationService\TechModelType.cs" />
+    <Compile Include="Submission\SimplifiedElectronicReturnManager.cs" />
+    <Compile Include="Submission\SimplifiedReturnResponse.cs" />
+    <Compile Include="Submission\SstError.cs" />
+    <Compile Include="Transmitter\SstRegistrationTransmitter.cs" />
+    <Compile Include="Utilities\Utf8StringWriter.cs" />
+    <Compile Include="Validators\CouSstValidator.cs" />
+    <Compile Include="Validators\FeinValidator.cs" />
+    <Compile Include="Validators\NewSstValidator.cs" />
+    <Compile Include="Validators\SsnValidator.cs" />
+    <Compile Include="Validators\SstValidator.cs" />
+    <Compile Include="Validators\StateIndicatorValidator.cs" />
+    <Compile Include="Validators\TinTypeValidator.cs" />
+    <Compile Include="Utilities\XmlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="Certificates\TestEnvironmentCertificate.CER">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Certificates\ProductionEnvironmentCertificate.CER">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Connected Services\SstRegistrationService\ApiService.wsdl" />
+    <None Include="Connected Services\SstRegistrationService\SstRegistrationTestHarness.Core.SstRegistrationService.BulkRegistrationAcknowledgementType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SstRegistrationService\SstRegistrationTestHarness.Core.SstRegistrationService.SSTReceiptType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SstRegistrationService\SstRegistrationTestHarness.Core.SstRegistrationService.SSTRegistrationTransmissionType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\SstRegistrationService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SstRegistrationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SstRegistrationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SstRegistrationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

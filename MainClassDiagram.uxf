@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1395</x>
+      <y>90</y>
+      <w>405</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>/TaxPayer/
+--
+-SstpId: string
+-StateIncorporated: string
+-SellerPhone: string
+-SellerPhoneExtension: string
+-DoingBusinessName: string
+-Password: string
+--
+-Taxpayer(contractor: Contractor, bulkOperationType BulkOperation,
+stateIncorporated: string, sellerPhone: string, password: string)
+-Taxpayer(contractor: Contractor, bulkOperationType: BulkOperation)
+--
+/+MapTaxpayerIdentificationNumber(): TINType/
+/+MapTaxpayerName(): object/
++CreateBulkOperationType(): BulkRegistrationDocumentType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>747</x>
+      <y>126</y>
+      <w>414</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Contractor
+--
+-CspCode: string
+-CasCode: string
+-CompanyName: string
+--
+-Contractor(companyName: string, userName: string, password: string)
+--
++Validate(contractorRepository: IContractorRepository)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>135</y>
+      <w>261</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=contractor</panel_attributes>
+    <additional_attributes>10.0;60.0;140.0;60.0;140.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2097</x>
+      <y>639</y>
+      <w>378</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/BulkOperationType/
+--
+/-DocumentType: BulkRegistrationDocumentTypeDocumentType/
+/-FilingType: BulkRegistrationHeaderTypeFilingType/
+--
+/+CreateBulkRegistrationType(taxpayer: Taxpayer): object/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1791</x>
+      <y>144</y>
+      <w>603</w>
+      <h>513</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=bulkOperation</panel_attributes>
+    <additional_attributes>560.0;550.0;560.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1107</x>
+      <y>405</y>
+      <w>450</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>FeinTaxpayer
+--
+-FederalEmployerIdentificationNumber: string
+-CompanyName: string
+--
+-FeinTaxpayer(contractor: Contractor, bulkOperationNew: BulkOperationNew,
+federalEmployerIdentificationNumber: string, companyName: string,
+stateIncorporated: string, sellerPhone: string, password: string)
+-FeinTaxpayer(contractor: Contractor, bulkOperationCou: BulkOperationCou,
+string sstpId, federalEmployerIdentificationNumber: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1314</x>
+      <y>306</y>
+      <w>306</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;60.0;320.0;60.0;320.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1656</x>
+      <y>405</y>
+      <w>459</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>SsnTaxpayer
+--
+-SocialSecurityNumber: string
+-FirstName: string
+-LastName: string
+-MiddleName: string
+--
+-SsnTaxpayer(contractor: Contractor, bulkOperationNew: BulkOperationNew,
+socialSecutiryNumber: string, firstName: string,
+lastName: string, stateIncoporated: string, sellerPhone: string, password: string)
+-SsnTaxpayer(contractor: Contractor, bulkOperationCou: BulkOperationCou,
+string sstpId, socialSecurityNumber: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1593</x>
+      <y>306</y>
+      <w>315</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>330.0;110.0;330.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2916</x>
+      <y>261</y>
+      <w>342</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>/SstValidator/
+--
+-SstStates: IList&lt;string&gt;
+-NonSStates: IList&lt;string&gt;
+--
+/+LoadErrors()/
++CreateTinValidator(type: TINTypeTypeTIN)
++VerifyContent(BulkRegistrationType content)
++ValidateEmptyString(value: string, errorMessage: string)
++ValidatePhone(value: string, entityName: string)
++ValidateStateIncoporated(stateIncorporated: string)
++ValidateAddress(address: IAddressType)
++ValidateContact(contact: ContactType)
++ValidateTechnologyModel(techModel: TechModelType)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2421</x>
+      <y>288</y>
+      <w>513</w>
+      <h>369</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=validator</panel_attributes>
+    <additional_attributes>550.0;20.0;10.0;20.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1890</x>
+      <y>819</y>
+      <w>369</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>BulkOperationNew
+--
+-NaicsCode: string
+-EntityType: string
+--
+-BulkOperationNew(entityType: string, naicsCode: string,
+physicalAddress: Address, contactInfo: ContactSellerInfo,
+technologyModel: TechModel)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2367</x>
+      <y>819</y>
+      <w>243</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>BulkOperationCou
+--
+-ActionCode: string
+--
+-BulkOperationNew(actionCode: string)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2286</x>
+      <y>720</y>
+      <w>225</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>230.0;110.0;230.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2061</x>
+      <y>720</y>
+      <w>252</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;60.0;260.0;60.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1395</x>
+      <y>819</y>
+      <w>252</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>/Address/
+--
+-AddressLine1: string
+-AddressLine2: string
+-City: string
+--
+-Address(addressLine1: string, city: string)
+--
+/+CreateDtoAddress(): object/
++MapAddressType(): AddressType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1638</x>
+      <y>837</y>
+      <w>270</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=physicalAddress</panel_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1638</x>
+      <y>882</y>
+      <w>270</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+r1=mailingAddress</panel_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1161</x>
+      <y>1125</y>
+      <w>306</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>ForeignAddress
+--
+-Country: string
+-Province: string
+-PostalCode: string
+--
+-ForeigAddress(country: string, province: string,
+postalCode: string, addressLine1: string, city: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1584</x>
+      <y>1125</y>
+      <w>270</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>UsaAddress
+--
+-State: string
+-ZipCode: string
+--
+-ForeigAddress(state: string, zipCode: string,
+addressLine1: string, city: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1305</x>
+      <y>945</y>
+      <w>225</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;100.0;230.0;100.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1503</x>
+      <y>945</y>
+      <w>234</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;200.0;240.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1791</x>
+      <y>1260</y>
+      <w>315</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>ContactSellerInfo
+--
+-FirstName: string
+-LastName: string
+-InitialName: string
+-Phone: string
+-PhoneExtension: string
+-Email: string
+--
+-ContactSellerInfo(firstName: string, lastName: string,
+phone: string, email: string)
+--
++MapContactInfo(): ContactType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1944</x>
+      <y>927</y>
+      <w>90</w>
+      <h>351</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=contactInfo</panel_attributes>
+    <additional_attributes>10.0;370.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2304</x>
+      <y>1053</y>
+      <w>252</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>/TechModel/
+--
+/+MapTechnologyModel(): TechModelType/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2133</x>
+      <y>927</y>
+      <w>189</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=technologyModel</panel_attributes>
+    <additional_attributes>190.0;190.0;10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2169</x>
+      <y>1224</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>TechModelNone</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2304</x>
+      <y>1224</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>TechModelOne</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2439</x>
+      <y>1224</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>TechModelTwo</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2574</x>
+      <y>1224</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>TechModelThree</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2421</x>
+      <y>1107</y>
+      <w>234</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;130.0;240.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2421</x>
+      <y>1107</y>
+      <w>99</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>90.0;130.0;90.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2223</x>
+      <y>1107</y>
+      <w>225</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;60.0;230.0;60.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2358</x>
+      <y>1107</y>
+      <w>90</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;60.0;80.0;60.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2547</x>
+      <y>1359</y>
+      <w>468</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>BulkNewRegistrationIndicatorOperation
+--
+-State: string
+-Indicator: string
+-FirstSalesDate: DateTime
+-RemoteEffectiveDate: DateTime
+-AllowanceIndicator: string
+-RemoteSellerId: string
+--
+-BulkNewRegistrationIndicatorOperation(state: string, indicator: string,
+firstSalesDate: DateTime, allowanceIndicator: string, remoteSellerId: string)
+-BulkNewRegistrationIndicatorOperation(state: string)
+--
++MapRegistrationIndicator(): BulkRegistrationNewTypeStateRegistrationIndicator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2205</x>
+      <y>927</y>
+      <w>747</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..*
+r1=registrationIndicatorsitems</panel_attributes>
+    <additional_attributes>650.0;480.0;650.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2925</x>
+      <y>810</y>
+      <w>243</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>bg=orange
+&lt;&lt;Interface&gt;&gt;
+IActionCouItem
+--
+-MapActionItem(): object</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2421</x>
+      <y>873</y>
+      <w>639</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;110.0;690.0;110.0;690.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2601</x>
+      <y>837</y>
+      <w>342</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..*
+r1=actionItems</panel_attributes>
+    <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3402</x>
+      <y>270</y>
+      <w>162</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>SstError
+--
+-DocumentId: string
+-Messages: IList&lt;string&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3249</x>
+      <y>288</y>
+      <w>171</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=sstErrors</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3312</x>
+      <y>108</y>
+      <w>207</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>BulkRegistrationDocumentType
+--
+-ErrorMessages: IList&lt;string&gt;
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3177</x>
+      <y>108</y>
+      <w>153</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=content</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2646</x>
+      <y>567</y>
+      <w>423</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>NewSstValidator
+--
+-ValidateRegistrationIndicator(
+registrationIndicator: BulkRegistrationNewTypeStateRegistrationIndicator,
+firstFilingPeriod: DateTime): void
+-ValidateTaxPayerIdentificatorNumber(tinType: TinType): void
+-CheckWithReservedCodes(code: string): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3168</x>
+      <y>567</y>
+      <w>162</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>CouSstValidator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2853</x>
+      <y>468</y>
+      <w>252</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;50.0;260.0;50.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3078</x>
+      <y>468</y>
+      <w>198</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>200.0;110.0;200.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3168</x>
+      <y>1089</y>
+      <w>243</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Businessinfo
+--
+-DoingBusinessName: string
+-SellerPhone: string
+-SellerPhoneExtension: string
+-StateIncorporated: string
+-NaicsCode: string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3033</x>
+      <y>873</y>
+      <w>279</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>290.0;240.0;290.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1638</x>
+      <y>927</y>
+      <w>1575</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+r1=physicalAddress</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0;190.0;120.0;1730.0;120.0;1730.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1593</x>
+      <y>945</y>
+      <w>1593</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+r1=mailingAddress</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0;450.0;150.0;450.0;220.0;1750.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2097</x>
+      <y>1170</y>
+      <w>1089</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+r1=contactInfo</panel_attributes>
+    <additional_attributes>10.0;140.0;950.0;140.0;950.0;10.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2925</x>
+      <y>1674</y>
+      <w>477</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>StateIndicator
+--
+-LastSalesDate: DateTime
+-WantRemaingRegistered: string
+-CspEndDate: DateTime
+-CspLastFiling: DateTime
+-AccountCloseDate: DateTime
+-FirstFilingPeriod: DateTime
+-RemoteEndDate: DateTime
+--
+-StateIndicator(state: string, firstSalesDate: DateTime, allowanceIndicator: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2826</x>
+      <y>1548</y>
+      <w>252</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>260.0;140.0;260.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3033</x>
+      <y>873</y>
+      <w>180</w>
+      <h>819</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>180.0;890.0;180.0;490.0;10.0;490.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3456</x>
+      <y>549</y>
+      <w>279</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>/TinTypeValidator/
+--
+/-InvalidPrefixes: IList&lt;string&gt;/
+/-InvalidPrefixesMessages: IList&lt;string&gt;/
+-ErrorMessages: IList&lt;string&gt;
+--
+TinTypeValidator(errorMessages: IList&lt;string&gt;)
+--
+/+ValidateTaxPayerName(taxPayerName: string)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3249</x>
+      <y>396</y>
+      <w>378</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=tinValidator</panel_attributes>
+    <additional_attributes>330.0;170.0;330.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3312</x>
+      <y>756</y>
+      <w>162</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>FeinValidator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3699</x>
+      <y>756</y>
+      <w>162</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>SsnValidator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3573</x>
+      <y>657</y>
+      <w>225</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>230.0;110.0;230.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3384</x>
+      <y>657</y>
+      <w>216</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;50.0;220.0;50.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3816</x>
+      <y>162</y>
+      <w>180</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>BulkRegistrationCOUType
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3609</x>
+      <y>162</y>
+      <w>180</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>BulkRegistrationNewType
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3510</x>
+      <y>81</y>
+      <w>261</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=item</panel_attributes>
+    <additional_attributes>270.0;20.0;80.0;20.0;80.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3753</x>
+      <y>306</y>
+      <w>243</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>BulkRegistrationCOUTypeBusinessInfo
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4005</x>
+      <y>306</y>
+      <w>243</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>BulkRegistrationCOUTypeStateIndicators
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4257</x>
+      <y>306</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>TechModelType
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3753</x>
+      <y>81</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;object&gt;&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3798</x>
+      <y>99</y>
+      <w>126</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>120.0;70.0;120.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3690</x>
+      <y>99</y>
+      <w>135</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;40.0;130.0;40.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4068</x>
+      <y>198</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;object&gt;&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3987</x>
+      <y>153</y>
+      <w>171</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=items</panel_attributes>
+    <additional_attributes>140.0;50.0;140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3870</x>
+      <y>216</y>
+      <w>261</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;50.0;270.0;50.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4104</x>
+      <y>216</y>
+      <w>234</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;100.0;240.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4104</x>
+      <y>216</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3969</x>
+      <y>0</y>
+      <w>495</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>bg=orange
+&lt;&lt;Interface&gt;&gt;
+ICouItemValidable
+--
+-Validate(actionCode: BulkRegistrationCOUTypeActionCode, sstValidator SstValidator)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3924</x>
+      <y>63</y>
+      <w>279</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;270.0;10.0;200.0;290.0;200.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4176</x>
+      <y>63</y>
+      <w>207</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>210.0;270.0;210.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4176</x>
+      <y>63</y>
+      <w>27</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>522</x>
+      <y>819</y>
+      <w>621</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>TransmittalLog
+--
+-LogDate: DateTime
+-TransmissionMode: ETransmissionMode
+-ContentSent: string
+-ContentReceived: string
+-TransmissionId: string
+-EndpointUrl: string
+-TransmissionStatus: ETransmittalStatus
+--
+-TransmittalLog(transmittalEnvironment: TransmittalEnvironment, submitter: User,
+transmissionStatus: ETransmittalStatus, contentSent: string, contentReceived: string, transmissionId: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>513</x>
+      <y>414</y>
+      <w>450</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>TransmittalEnvironment
+--
+-Name: string
+-EndpointUrl: string
+-TransmissionVersion: string
+-UserName: string
+-Password: string
+-TransmissionMode: ETransmissionMode
+--
+-TransmittalEnvironment(name: string, endpointUrl: string,
+userName: string, password: string, transmissionModel: ETransmissionModel)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>1098</y>
+      <w>450</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>TransmittalLogItem
+--
+-DocumentId: string
+-SstpId: string
+-DocumentStatus: ETransmittalStatus
+-Errors: string
+--
+-TransmittalLogItem(documentId: string, documentStatus: ETransmittalStatus)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>783</x>
+      <y>981</y>
+      <w>72</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..*
+r1=logItems</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>720</y>
+      <w>261</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-Username: string
+-Password: string
+-Email: string
+-FirstName: string
+-LastName: string
+--
+-User(username: string, password: string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>774</y>
+      <w>288</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=submitter</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0;110.0;140.0;300.0;140.0</additional_attributes>
+  </element>
+</diagram>
